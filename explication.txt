@@ -1,0 +1,26 @@
+Projet : Agent IA d'Analyse de Bibliothèque (n8n)
+Présentation du projet
+Ce projet consiste en la création d'un Agent Intelligent autonome conçu sur la plateforme d'automatisation n8n. L'objectif principal est de transformer une base de données statique (Google Sheets) en une ressource interactive capable de répondre à des questions en langage naturel.
+
+Architecture du Workflow
+Le flux de travail (workflow) s'articule autour de quatre composants clés :
+
+Le Déclencheur (Chat Trigger) : Point d'entrée permettant à l'utilisateur d'envoyer des messages ou des requêtes.
+
+Le Cerveau (AI Agent) : Le nœud central qui coordonne la réflexion de l'IA et l'utilisation des outils.
+
+Le Modèle (OpenAI) : Le moteur de langage qui permet à l'agent de comprendre et de générer des réponses fluides.
+
+L'Outil Métier (Google Sheets Tool) : La connexion qui permet à l'agent de lire, d'extraire et d'analyser les lignes spécifiques de mon fichier de livres.
+
+Fonctionnement Technique
+L'agent utilise une mémoire simple pour conserver le contexte de la discussion, ce qui rend l'échange naturel. Lorsqu'une question est posée sur un livre, l'agent décide de lui-même d'interroger le document Google Sheets pour récupérer les informations nécessaires avant de formuler sa réponse.
+
+Capacités de l'Agent
+Analyse de données : Capacité à compter, filtrer ou trier les livres présents dans la liste.
+
+Recherche ciblée : Retrouver un ouvrage par son titre, son auteur ou son genre.
+
+Interaction intelligente : Discuter du contenu du fichier sans avoir besoin de l'ouvrir manuellement.
+
+Projet réalisé dans le cadre de l'apprentissage de l'automatisation et de l'intégration des outils d'Intelligence Artificielle.
