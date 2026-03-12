@@ -1,26 +1,43 @@
-Projet : Agent IA d'Analyse de Bibliothèque (n8n)
-Présentation du projet
-Ce projet consiste en la création d'un Agent Intelligent autonome conçu sur la plateforme d'automatisation n8n. L'objectif principal est de transformer une base de données statique (Google Sheets) en une ressource interactive capable de répondre à des questions en langage naturel.
+ Agent IA d'Analyse de Données (Google Sheets + n8n)
+ Description du Projet
+Ce projet consiste en la conception et l'implémentation d'un Agent Intelligent autonome via l'outil d'automatisation n8n. L'objectif est de transformer une feuille de calcul Google Sheets statique (ma liste de livres) en une base de connaissances interactive capable de répondre à des requêtes complexes en langage naturel.
 
-Architecture du Workflow
-Le flux de travail (workflow) s'articule autour de quatre composants clés :
+Fonctionnement Technique du Workflow
+Le workflow est structuré autour de quatre composants majeurs qui communiquent entre eux :
 
-Le Déclencheur (Chat Trigger) : Point d'entrée permettant à l'utilisateur d'envoyer des messages ou des requêtes.
+1. L'Interface de Chat (Trigger)
+Le point d'entrée est un nœud Chat Trigger. Il permet d'envoyer des messages textuels à l'agent. C'est ici que l'utilisateur pose ses questions (ex: "Quels livres d'aventure ai-je dans ma liste ?").
 
-Le Cerveau (AI Agent) : Le nœud central qui coordonne la réflexion de l'IA et l'utilisation des outils.
+2. Le Cerveau : AI Agent (Nœud Central)
+C'est le composant le plus important. Contrairement à un workflow classique qui suit un chemin linéaire, l'Agent IA utilise une logique de raisonnement :
 
-Le Modèle (OpenAI) : Le moteur de langage qui permet à l'agent de comprendre et de générer des réponses fluides.
+Il analyse la question de l'utilisateur.
 
-L'Outil Métier (Google Sheets Tool) : La connexion qui permet à l'agent de lire, d'extraire et d'analyser les lignes spécifiques de mon fichier de livres.
+Il décide s'il a besoin d'utiliser un outil externe (Google Sheets) pour répondre.
 
-Fonctionnement Technique
-L'agent utilise une mémoire simple pour conserver le contexte de la discussion, ce qui rend l'échange naturel. Lorsqu'une question est posée sur un livre, l'agent décide de lui-même d'interroger le document Google Sheets pour récupérer les informations nécessaires avant de formuler sa réponse.
+Il synthétise les données récupérées pour donner une réponse humaine.
 
-Capacités de l'Agent
-Analyse de données : Capacité à compter, filtrer ou trier les livres présents dans la liste.
+3. Le Modèle de Langage (LLM) : OpenAI
+J'ai intégré le modèle de OpenAI pour fournir l'intelligence de compréhension. Il permet à l'agent de comprendre les nuances, les fautes d'orthographe ou les demandes indirectes.
 
-Recherche ciblée : Retrouver un ouvrage par son titre, son auteur ou son genre.
+4. L'Outil Métier : Google Sheets Tool
+C'est le "bras armé" de l'agent. J'ai configuré un outil spécifique qui permet à l'IA de :
 
-Interaction intelligente : Discuter du contenu du fichier sans avoir besoin de l'ouvrir manuellement.
+Lire l'intégralité ou des lignes spécifiques du fichier.
 
-Projet réalisé dans le cadre de l'apprentissage de l'automatisation et de l'intégration des outils d'Intelligence Artificielle.
+Analyser les colonnes (Titre, Auteur, Genre, etc.).
+
+Extraire uniquement l'information pertinente pour répondre à la question.
+
+Gestion de la Mémoire
+Le workflow inclut un nœud Window Buffer Memory. Cela permet à l'agent de se souvenir des messages précédents.
+
+Exemple : Si je demande "Qui est l'auteur du premier livre ?", puis "A-t-il écrit autre chose ?", l'agent sait que "il" se rapporte à l'auteur cité précédemment.
+
+Capacités Clés
+Extraction de données : Retrouver instantanément n'importe quel livre sans ouvrir le fichier.
+
+Analyse de contenu : L'IA peut résumer les thématiques présentes dans le Google Sheets.
+
+Recommandation intelligente : Basé sur la liste existante, l'IA peut suggérer quel livre lire ensuite.
+
